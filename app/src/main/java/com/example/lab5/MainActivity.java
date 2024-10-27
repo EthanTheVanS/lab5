@@ -140,7 +140,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void deleteProduct(String id) {
 
-        Toast.makeText(getApplicationContext(), "NOT IMPLEMENTED YET", Toast.LENGTH_LONG).show();
+        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("products").child(id);
+        dR.removeValue();
+        Toast.makeText(getApplicationContext(),"product deleted",Toast.LENGTH_LONG).show();
+
     }
 
     private void addProduct() {
